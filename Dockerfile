@@ -50,3 +50,7 @@ RUN apk add --no-cache --virtual .fetch-deps \
     cd / && \
     apk del .fetch-deps .build-deps && \
     rm -rf $BUILD_DIR
+
+LABEL version="0.1.1"
+LABEL maintainer.name="Paolo Anastagi"
+LABEL maintainer.email="poliez.poliez.p@gmail.com"
