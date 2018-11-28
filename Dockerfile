@@ -45,7 +45,7 @@ RUN apk add --no-cache --virtual .fetch-deps \
       $runDeps && \
 # Install Python Kafka Client
 # Has to be done before cleaning the environment because needs gcc
-    pip install confluent-kafka && \
+    pip3 install confluent-kafka[avro]==0.11.6 && \
 # Remove unecessary packages/folders
     cd / && \
     apk del .fetch-deps .build-deps && \
