@@ -3,7 +3,7 @@ FROM python:3.7.1-alpine
 ARG LIBRDKAFKA_NAME="librdkafka"
 ARG LIBRDKAFKA_VER="0.11.6"
 
-LABEL version="0.1.1"
+LABEL version="0.1.5"
 LABEL maintainer.name="Paolo Anastagi"
 LABEL maintainer.email="poliez.poliez.p@gmail.com"
 
@@ -48,7 +48,7 @@ RUN apk add --no-cache --virtual .fetch-deps \
     apk add --no-cache --virtual .librdkafka-rundeps \
       $runDeps && \
 # Install Python Kafka Client
-# Has to be done before cleaning the environment because needs gcc
+# Has to be done before cleaning the environment. Needs gcc.
     pip3 install confluent-kafka[avro]==0.11.6 && \
 # Remove unecessary packages/folders
     cd / && \
